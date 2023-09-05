@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./home/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>TATA group towards new world</title>
+</head>
+
+<body>
+       <!-- background video -->
+       <section class="bddata">
+       <video autoplay muted loop id="bdvediorr" src="./home/production ID_4569076.mp4"></video>
+        <!-- navbar -->
+       <div class="navbar">
+        <ul>
+           
+            <li class="menu" onclick="opennav();closeform()" id="menu"><a href="#"><img src="./home/icons8-squared-menu-100.png"></a></li>
+
+            <li class="logo"  id="logo"><a href="#"><img src="./home/Tata-Motors-Logo-PNG-Photo.png"></a></li>
+            <li class="login" onclick="openform();closenav() " id="login"><a href="#"><img src="./home/icons8-login-64.png"></a></li>
+        </ul>
+        <hr>
+
+    </div>
+
+    <div>
+        <span id="navbarcontent" class="navbarcontent">
+            <ul>
+                <li class="home"><a href="./index.html">Home</a></li>
+                <li class="products"><a href="./products/product.html">Products</a></li>
+                <li class="about_us"><a href="./about us/about us.html">About Us</a></li>
+                <li class="blog"><a href="./blog/blog.html">Blogs</a></li>
+                <li class="contact_us"><a href="./contact us project/joinus.html">Contact Us</a></li>
+                <li class="Creator"><a href="./creator/about.html">Creators</a></li>
+                <li class="closs" style="background-color: rgba(255, 0, 0, 0.35);display: inline;" onclick="closenav()"><a href="#">close</a></li>
+            </ul>
+        </span>
+    </div>
+
+    <!-- form -->
+    <span class="formcontent" id="formcontent">
+     
+        <div class="usualinfo">
+          <h1 style="text-decoration: underline;">FIND A DEALER</h1>
+          <p>You will be directed to the page of our authorised dealers. Tata Motor Cars Limited accepts no liability or responsibility for the information, views, or opinions contained therein.</p>
+        </div>
+        <div class="name">
+           <label for="City">City :</label>
+           <br>
+           <input type="text">
+        </div>
+        <div class="Country">
+            <label for="Country">Country :</label>
+            <br>
+            <input type="text">
+         </div>
+         
+         <div class="button">
+            <input id="sub" type="button" value="Search">
+         </div>
+         <div onclick="closeform()" class="button">
+          <input id="sub2" type="button" value="close">
+       </div>
+        
+    </span>
+
+    </div>
+    <div class="paradata">
+      <div class="infoo">
+        <h1 style="text-decoration: underline;color: rgb(28, 139, 250);">Tata Motors</h1>
+        <p>Tata Motors Group (Tata Motors) is a $37 billion organisation. It is a leading global automobile manufacturing company. Its diverse portfolio includes an extensive range of cars, sports utility vehicles, trucks, buses and defence vehicles. Tata Motors is one of India's largest OEMs offering an extensive range of integrated, smart and e-mobility solutions</p>
+       
+        <h1 style="text-decoration: underline;color: rgb(28, 139, 250)">Glimps In The History</h1>
+        <p>Part of the USD128 billion Tata group founded by Jamsetji Tata in 1868, Tata Motors is among the world's leading manufacturers of automobiles. We believe in 'Connecting aspirations', by offering innovative mobility solutions that are in line with customers' aspirations. We are India's largest automobile manufacturer, and we continue to take the lead in shaping the Indian commercial vehicle landscape, with the introduction of leading-edge powertrains and electric solutions packaged for power performances and user comfort at the lowest life-cycle costs. Our new passenger cars and utility vehicles are based on Impact Design and offer a superior blend of performance, driveability and connectivity.</p>
+        </div>
+      
+      <div><img id="infoimg" src="./home/profile_info.jpg" alt=""></div>
+    </div>
+       </section>
+       
+       <div class="crosel">
+        <h1>Best Sellers Of 2022</h1>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 crouselimg" src="./home/f11.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 crouselimg" src="./home/f12.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 crouselimg" src="./home/f13.jpg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+       </div>
+       <div class="line"></div>
+       <div class="extraknow">
+        <div class="imgextra"><img src="./home/world_map.gif" alt=""></div>
+        <div class="extrapara">
+          <h1>Branches In The World</h1>
+          <p>
+            With millions of TML vehicle plying globally, Tata Motors is among the select companies in the world to offer an extensive portfolio to its consumers. We have expanded our international footprint through exports since 1961. In passenger vehicles, the company has a strong presence in various segments and exports in to countries like Nepal, Bhutan, Bangladesh and Sri Lanka. In commercial vehicles, Tata Motors offers a wide spectrum of vehicles that are customized for local conditions and meet the highest standards for quality, safety, environment norms and user comfort. Today, the Tata Motors group is present in over 125 countries, with a worldwide network comprising over 8,800 touch points. Tata Motors has R&D centres in UK, Italy, India and South Korea. With vast global experience, the company brings deep understanding of customer expectations from diverse markets, and is well positioned to cater to ever changing automotive norms and consumer trends across the globe.</p>
+        </div>
+       </div>
+      <div class="footer">
+        <div class="commontag">
+          <li class="home"><a href="./index.html">Home</a></li>
+          <li class="products"><a href="./products/product.html">Products</a></li>
+          <li class="about_us"><a href="./about us/about us.html">About Us</a></li>
+          <li class="blog"><a href="./blog/blog.html">Blogs</a></li>
+          <li class="contact_us"><a href="./contact us project/joinus.html">Contact Us</a></li>
+          <li class="Creator"><a href="./creator/about.html">Creators</a></li>
+        </div>
+        <div class="social">
+          <ul class="social">
+            <li><a target="_blank" href="http://linkedin.com"><img src="./home/linkedin-logo-png-1826.png" alt="hohoho"></a></li>
+            <li><a  target="_blank" href="http://instagram.com"><img src="./home/512x512-logo-27164.png" alt="hohoho"></a></li>
+            <li><a target="_blank" href="http://twitter.com"><img src="./home/logo-twitter-png-5860.png" alt="hohoho"></a></li>
+            <li><a target="_blank" href="http://facebook.com"><img src="./home/logo-facebookpng-32204.png" alt="hohoho"></a></li>
+            </ul>
+        </div>
+        <div style="font-size: 13px;">Copyright © 2019, All Right Reserved To Chetan</div>
+                
+        
+      </div>
+
+
+
+
+        <!-- javascript -->
+    <script>
+        function opennav() {
+            document.getElementById("navbarcontent").style.width = "30%";
+            // document.getElementById("paradata").style.translate="-650px";
+        }
+        function closenav() {
+            document.getElementById("navbarcontent").style.width = "0%";
+        }
+        function openform() {
+            document.getElementById("formcontent").style.height = "100vh";
+            
+        }
+        function closeform() {
+            document.getElementById("formcontent").style.height = "0vh";
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

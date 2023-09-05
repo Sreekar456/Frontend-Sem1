@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="proj.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#"><img src="Tata-Motors-Logo-PNG-Photo.png" class="logo" /></a>
+      <div class="togglemenu" onclick="menutoggle();"></div>
+      <ul class="navigation">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about us/about us.html">About us</a></li>
+        <li><a href="./blog/blog.html">Blog</a></li>
+        <li><a href="./contact us project/joinus.html">Contact us</a></li>
+        <li><a href="./products/product.html">Products</a></li>
+        <li><a href="./creator/about.html">Creator</a></li>
+      </ul>
+    </header>
+    <br />
+    <br />
+    <div class="container">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Stay In Contact</h3>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Email Id" required />
+        <input type="text" id="phone" placeholder="Phone No" required />
+        <textarea
+          id="message"
+          rows="4"
+          placeholder="How Can We Help You?"
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "khalidhshanu124@gmail.com",
+          Password: "iiitl@1234",
+          To: "saisreekar514@gmail.com",
+          From: document.getElementById("email").value,
+          Subject: "New Contact Form Enquiry",
+          Body:
+            "Name: " +
+            document.getElementById("name").value +
+            "<br> Email: " +
+            document.getElementById("email").value +
+            "<br> Phone No: " +
+            document.getElementById("phone").value +
+            "<br> Message: " +
+            document.getElementById("message").value,
+        }).then((message) => alert("Message Sent Successfully"));
+      }
+      function menutoggle() {
+        const togglemenu = document.querySelector(".togglemenu");
+        const navigation = document.querySelector(".navigation");
+        togglemenu.classList.toggle("active");
+        navigation.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

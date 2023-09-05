@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    position: relative;
+    max-width: 80px;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+}
+header ul li{
+    list-style:none;
+
+}
+header ul li a{
+    display:inline-block;
+    color:white;
+    font-weight:400;
+    margin-left:40px;
+    text-decoration: none;
+}
+        .member{
+            width: 60%;
+            height: 50px;
+            font-size: 20px;
+            text-align: left;
+            text-shadow: 2px 2px 5px green;
+            font-style: italic;
+            font-family: cursive;
+            transition: 0.5s;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+        }
+        .active,.member:hover{
+            background-color: aqua;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+        .member:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+        
+        div{
+            margin: auto;
+            width: 60%;
+            color: yellow;
+            background-color: purple;
+            display: none;
+        }
+        p{
+            font-family: cursive;
+        }
+        @media(max-width:991px){
+            header{
+        padding:20px 40px;
+    }
+    header .logo{
+        position:relative;
+        max-width:60px;
+    }
+    header ul{
+
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        background: rgb(249, 242, 242);
+        
+        z-index:1;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        transition: 0.2s;
+        visibility: hidden;
+        opacity: 0;
+    }
+    header ul.active{
+        visibility: visible;
+        opacity: 0.9;
+    }
+    header ul li a{
+        display: inline-block;
+        color:black;
+        font-weight: 400;
+        margin-left: 0;
+        text-decoration:none;
+        font-size:2em;
+        margin:10px 0;
+    }
+    header ul li a:hover{
+        color:#ed023e
+    }
+    .togglemenu{
+        position:relative;
+        width: 40px;
+        height: 40px;
+        background:url("menu.png");
+        background-position: center;
+        background-size: 30px;
+        background-repeat:no-repeat;
+        z-index: 2;
+        cursor: pointer;
+    }
+    .togglemenu .active{
+       background:url("close.png");
+       background-position:center;
+       background-size:25px;
+       background-repeat:no-repeat;
+       filter: invert(1);
+    }
+        }
+    </style>
+</head>
+<header>
+    <a href="#"><img src="Tata-Motors-Logo-PNG-Photo.png" class="logo"></a>
+    <div class="togglemenu" onclick="menutoggle();"></div>
+    <ul class="navigation">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about us/about us.html">About us</a></li>
+        <li><a href="./blog/blog.html">Blog</a></li>
+        <li><a href="./contact us project/joinus.html">Contact us</a></li>
+        <li><a href="./products/product.html">Products</a></li>
+        <li><a href="./creator/about.html">Creator</a></li>
+    </ul>
+</header>
+<br>
+<br>
+<body style="background-color: black; text-align: center; color: aliceblue; font-size: 30px;">
+    <h1>About the members who built this project</h1>
+    <button class="member">Member 1: Hrishap Joshi</button>
+    <div>
+        <img src="hrishap.jpg" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Hrishap Joshi (LCI2022024)</strong></h5>
+        <p>He belongs to Uttarakhand state. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a decent knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <button class="member">Member 2: Naman Choudhary</button>
+    <div>
+        <img src="naman.jpg" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Naman Choudhary (LCI2022034)</strong></h5>
+        <p>He belongs to Uttar Pradesh state. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a basic knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <button class="member">Member 3: Chetan Nehra</button>
+    <div>
+        <img src="Screenshot (90).png" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Chetan Nehra (LCI2022016)</strong></h5>
+        <p>He belongs to Haryana state. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a basic knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <button class="member">Member 4: Ishaan Singh</button>
+    <div>
+        <img src="photograph.jpg" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Ishaan Singh (LCI2022025)</strong></h5>
+        <p>He belongs to Jharkhand state. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a basic knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <button class="member">Member 5: Sai Sreekar</button>
+    <div>
+        <img src="sreekar.jpg" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Sai Sreekar (LCI2022017)</strong></h5>
+        <p>He belongs to Andhra Pradesh state. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a basic knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <button class="member">Member 6: Sanskar Sahu</button>
+    <div>
+        <img src="sanskar.jpg" alt="" style="height: 200px; width: 140px;margin-left: 0px;">
+        <h4><strong>Sanskar Sahu (LCI2022043)</strong></h5>
+        <p>He belongs to New Delhi. He got IIIT Lucknow through JoSAA counselling and is currently pursuing B.tech in Computer Science and Artificial Intelligence. He has a basic knowledge of HTML and CSS and knows basic applications of Javascript language. He is one of the contributors in designing this project.</p>
+    </div>
+    <script>
+        var info=document.getElementsByClassName("member");
+        var i;
+        for(i=0; i<info.length; i++)
+        {
+            info[i].addEventListener("click", function(){
+                this.classList.toggle("active");
+                var ele=this.nextElementSibling;
+                if(ele.style.display=="block"){
+                    ele.style.display="none";
+                }
+                else{
+                    ele.style.display="block";
+                }
+            });
+        }
+        function menutoggle(){
+            const togglemenu=document.querySelector('.togglemenu');
+            const navigation=document.querySelector('.navigation');
+            togglemenu.classList.toggle("active");
+            navigation.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- card -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+
+  <!-- Add icon library -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+
+  <!-- slider -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- footer  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      position: relative;
+      max-width: 80px;
+    }
+
+    header ul {
+      position: relative;
+      display: flex;
+    }
+    header ul li {
+      list-style: none;
+    }
+    header ul li a {
+      display: inline-block;
+      color: white;
+      font-weight: 400;
+      margin-left: 40px;
+      text-decoration: none;
+    }
+    body {
+      background: black;
+    }
+    .sidebar {
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      background-color: #f1f1f1;
+      background: rgb(77, 77, 77);
+      border: 1px solid white;
+      color: white;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+      z-index: 200;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a.active {
+      background-color: black;
+      color: white;
+    }
+
+    .sidebar a:hover:not(.active) {
+      background-color: #555;
+      color: blue;
+      font-size: large;
+    }
+
+    .word_cloudbg {
+      background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnHqMVTfDLLpeFjx1hlP6YIC7d6CHQWg07plVpNatVx6Yn8LlapS_R7pNqrxkf0aqVDDk&usqp=CAU)
+        no-repeat;
+      height: auto;
+      float: left;
+      margin-left: 5%;
+      margin-bottom: 16%;
+      width: 80%;
+      background-size: cover;
+      padding: 25px;
+      /* padding-bottom: 100px; */
+      color: #fff;
+      text-align: center;
+    }
+
+    .blog_image {
+      display: flex;
+    }
+
+    .col {
+      display: flex;
+    }
+
+    .blog_col-3 {
+      width: 33%;
+      margin-right: 10%;
+    }
+
+    .blog_col2 {
+      padding-left: 12.8%;
+      margin-right: 3.7%;
+    }
+    @media (max-width: 991px) {
+      header {
+        padding: 20px 40px;
+      }
+      header .logo {
+        position: relative;
+        max-width: 60px;
+      }
+      header ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(249, 242, 242);
+
+        z-index: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        visibility: hidden;
+        opacity: 0;
+      }
+      header ul.active {
+        visibility: visible;
+        opacity: 0.9;
+      }
+      header ul li a {
+        display: inline-block;
+        color: black;
+        font-weight: 400;
+        margin-left: 0;
+        text-decoration: none;
+        font-size: 2em;
+        margin: 10px 0;
+      }
+      header ul li a:hover {
+        color: #ed023e;
+      }
+      .togglemenu {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: url("menu.png");
+        background-position: center;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .togglemenu .active {
+        background: url("close.png");
+        background-position: center;
+        background-size: 25px;
+        background-repeat: no-repeat;
+        filter: invert(1);
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-right: 2%;
+      }
+
+      .sidebar a {
+        float: left;
+      }
+
+      div.content {
+        margin-left: 0;
+      }
+
+      .slider {
+        margin-right: 20%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .blog_img_text {
+      /* color: rgb(227, 69, 69); */
+      color: rgb(77, 77, 77);
+      font-size: medium;
+    }
+
+    .blog_img_head {
+      color: blue;
+    }
+
+    @media screen and (max-width: 1400px) {
+      .col {
+        display: block;
+        margin-left: 10%;
+      }
+
+      .blog_col-3 {
+        margin-left: 15%;
+        /* display: flex; */
+        /* float: left; */
+        width: 80%;
+      }
+
+      .word_cloudbg {
+        margin-top: 6%;
+      }
+
+      .featured_blog {
+        float: left;
+      }
+    }
+
+    @media screen and (max-width: 430px) {
+      .blog_img_text {
+        display: none;
+      }
+
+      .blog_head_text {
+        font-size: medium;
+      }
+    }
+
+    .blog_card_container {
+      position: relative;
+      /* width: 50%; */
+      /* max-width: 300px; */
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.5);
+      /* Black see-through */
+      color: #f1f1f1;
+      width: 100%;
+      transition: 0.5s ease;
+      opacity: 0;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .blog_card_container:hover .overlay {
+      opacity: 1;
+    }
+    .card-img-top {
+      border-radius: 0 0 10px 10px;
+      padding: 0;
+      margin: 0;
+      border: black;
+    }
+    /* footer  */
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(56px);
+      /* border-top: 2px solid white; */
+      width: 100vw;
+      height: 150px;
+      background-color: rgba(0, 0, 0, 0.72);
+    }
+    .commontag {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      text-decoration: none;
+      padding-left: 12px;
+      padding-bottom: 12px;
+      padding-top: 12px;
+    }
+    .commontag li a {
+      font-size: 20px;
+      padding-left: 20px;
+      color: aliceblue;
+    }
+    .commontag li a:hover {
+      text-decoration: underline;
+    }
+    .social img {
+      width: 50px;
+      height: 40px;
+      padding-left: 12px;
+    }
+    .social {
+      list-style-type: none;
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+    }
+    @media only screen and (max-width: 540px) {
+      .commontag li a {
+        font-size: 16px;
+      }
+    }
+
+    @media only screen and (max-width: 436px) {
+      .commontag li a {
+        font-size: 13px;
+        padding-left: 6px;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <a href="#"><img src="Tata-Motors-Logo-PNG-Photo.png" class="logo" /></a>
+      <div class="togglemenu" onclick="menutoggle();"></div>
+      <ul class="navigation">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about us/about us.html">About us</a></li>
+        <li><a href="./blog/blog.html">Blog</a></li>
+        <li><a href="./contact us project/joinus.html">Contact us</a></li>
+        <li><a href="./products/product.html">Products</a></li>
+        <li><a href="./creator/about.html">Creator</a></li>
+      </ul>
+    </header>
+    <br />
+    <br />
+    <br />
+    <div class="sidebar">
+      <a class="active" href="http://127.0.0.1:5500/battle.html#home">
+        <h1>Blogs</h1>
+      </a>
+      <a
+        href="https://www.tatamotors.com/blog/category/passenger-vehicles-international-business/"
+        >PASSENGER VEHICLES INTERNATIONAL BUSINESS</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/sustainability/"
+        >SUSTAINABILITY</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/electric-vehicles/"
+        >ELECTRIC VEHICLES</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/corporate/"
+        >CORPORATE</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/people/">PEOPLE</a>
+      <a href="https://www.tatamotors.com/blog/category/csr/"
+        >CORPORATE SOCIAL RESPONSIBILITY</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/passenger-vehicle/"
+        >PASSENGER VEHICLE</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/commercial-vehicle/"
+        >COMMERCIAL VEHICLES</a
+      >
+      <a href="https://www.tatamotors.com/blog/category/international-business/"
+        >INTERNATIONAL BUSINESS</a
+      >
+    </div>
+
+    <div class="container">
+      <br />
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2023/01/blog-25jan23-featured.jpg"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Corporate</h3>
+              <p class="blog_img_text">
+                Developing 'Software on Wheels' Seamless Technologies for the
+                Vehicles of Tomorrow
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2023/01/blog-24jan23-featured.jpg"
+              alt="Chicago"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Corporate</h3>
+              <p class="blog_img_text">
+                Embracing Flexiblity,Expanding Skills:A Transformative Model for
+                the Workplace
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2022/12/blog-07dec22-featured.jpg"
+              alt="New York"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Corporate</h3>
+              <p class="blog_img_text">
+                Relooking at Digitization in the Automotive Sector:Working
+                Towards a Connected Mobility Universe
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2022/11/blog-10nov22-featured.jpg"
+              alt="New York"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Electric Vehicle</h3>
+              <p class="blog_img_text">
+                Designing for the Future World-Class Vehicles,Human Centeric
+                Designs
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2022/07/blog-19jul22-featured.jpg"
+              alt="New York"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Corporate</h3>
+              <p class="blog_img_text">
+                Demystifing Vehicular Safety:The Fundamentals of Engineering a
+                Safe Vehicle
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://www.tatamotors.com/wp-content/uploads/2022/05/blog-25may22-featured.jpg"
+              alt="New York"
+              style="width: 100%; margin-left: auto; margin-right: auto"
+            />
+            <div class="carousel-caption">
+              <h3 class="blog_img_head">Passenger Vehicle</h3>
+              <p class="blog_img_text">
+                Decoding India's SUV 'Fever': Why SUV's are Defining trhe
+                Mobility of Today
+              </p>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br />
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <br /><br />
+      <div class="blog_col2">
+        <div class="blog_image">
+          <div class="card" style="width: 40rem; margin-right: 3%">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2022/05/blog-04may22-featured-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Mr. Rajesh Khatri</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/passenger-vehicle/being-futuready-re-imagining-automotive-supply-chains-in-the-post-covid-world/"
+              >
+                <h3 class="blog_head_text">
+                  Being FutuReady – Re-imagining Automotive Supply Chains in the
+                  Post-Covid World
+                </h3>
+              </a>
+            </div>
+          </div>
+          <div class="card" style="width: 40rem">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2022/04/blog-2apr22-feture-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Mr. Gopinath Jayaraj</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/corporate/evolutionary-platforms-revolutionary-outcomes-digital-transformation-in-the-automotive-industry/"
+              >
+                <h3 class="blog_head_text">
+                  Evolutionary Platforms, Revolutionary Outcomes: Digital
+                  Transformation in the Automotive Industry
+                </h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="blog_image">
+          <div class="card" style="width: 40rem; margin-right: 3%">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2022/03/blog-4mar22-featured-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Mr. Anand Kulkarni,</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/electric-vehicles/maximizing-performance-minimizing-wastage-energy-management-in-evs-and-why-it-is-crucial/"
+              >
+                <h3 class="blog_head_text">
+                  Maximizing Performance, Minimizing Wastage: Energy Management
+                  in EVs and Why it is Crucial
+                </h3>
+              </a>
+            </div>
+          </div>
+          <div class="card" style="width: 40rem">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2021/12/blog-10dec21-featured-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Talk Walk</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/corporate/talking-the-walk-with-prakash-telang/"
+              >
+                <h3 class="blog_head_text">
+                  Talking the walk with Prakash Telang
+                </h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div class="blog_image">
+          <div class="card" style="width: 40rem; margin-right: 3%">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2021/10/blog-27oct21-featured-1-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Junky</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/commercial-vehicle/junkyard-diaries/"
+              >
+                <h3 class="blog_head_text">Junkyard diaries</h3>
+              </a>
+            </div>
+          </div>
+          <div class="card" style="width: 40rem">
+            <div class="blog_card_container">
+              <img
+                class="card-img-top"
+                src="https://www.tatamotors.com/wp-content/uploads/2021/06/blog-15jun21-featured-364x199.jpg"
+                alt="Card image cap"
+              />
+              <div class="overlay">Indian History</div>
+            </div>
+            <div class="card-body">
+              <a
+                href="https://www.tatamotors.com/blog/commercial-vehicle/from-india-with-love/"
+              >
+                <h3 class="blog_head_text">From India, with love</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <br /><button
+          style="margin-left: 50%"
+          id="read-more"
+          class="btn btn-primary btn-lg"
+        >
+          Read more
+        </button>
+        <span id="blog_more" class="hidden">
+          <div class="blog_image">
+            <div class="card" style="width: 40rem; margin-right: 3%">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2021/02/blog-05feb21-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Lockdown Momvements</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/nikhil-jadhav-pune/"
+                >
+                  <h3 class="blog_head_text">Nikhil Jadhav, Pune</h3>
+                </a>
+              </div>
+            </div>
+            <div class="card" style="width: 40rem">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2021/01/blog-29jan21-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Learing durning lockdown</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/vishal-agrawal-lucknow/"
+                >
+                  <h3 class="blog_head_text">Vishal Agrawal, Lucknow</h3>
+                </a>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="blog_image">
+            <div class="card" style="width: 40rem; margin-right: 3%">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2021/01/blog-22jan21-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Lockdown Learnings</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/subir-sinha-pune/"
+                >
+                  <h3 class="blog_head_text">Subir Sinha, Pune</h3>
+                </a>
+              </div>
+            </div>
+            <div class="card" style="width: 40rem">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2021/01/blog-15jan21-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Lockdown Experince</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/sudhanya-basu-pune/"
+                >
+                  <h3 class="blog_head_text">Sudhanya Basu, Pune</h3>
+                </a>
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="blog_image">
+            <div class="card" style="width: 40rem; margin-right: 3%">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2021/01/blog-08jan21-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Dr.VIjayshree Shirole</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/dr-vijayshree-shirole-pune/"
+                >
+                  <h3 class="blog_head_text">Dr. Vijayshree Shirole, Pune</h3>
+                </a>
+              </div>
+            </div>
+            <div class="card" style="width: 40rem">
+              <div class="blog_card_container">
+                <img
+                  class="card-img-top"
+                  src="https://www.tatamotors.com/wp-content/uploads/2020/08/blog-14aug20-featured-364x199.jpg"
+                  alt="Card image cap"
+                />
+                <div class="overlay">Lockdown Learings</div>
+              </div>
+              <div class="card-body">
+                <a
+                  href="https://www.tatamotors.com/blog/people/lockdown-learnings-rupali-jadhav/"
+                >
+                  <h3 class="blog_head_text">
+                    Lockdown Learnings – Rupali Jadhav
+                  </h3>
+                </a>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+
+      <div class="blog_col-3">
+        <div class="word_cloudbg">
+          Automobile Automotive Careers Commercial Vehicles Connecting
+          Aspirations CSR Engineering Global HR Human Resources Impact design
+          International Business Lockdown Learnings Passenger Vehicles PV safety
+          Sales Strategy Tata Hexa Tata Motors Tata Nexon Tata Prima technology
+        </div>
+        <br /><br /><br />
+        <div class="featured_blog">
+          <h3 style="margin-top: 4%; color: white">Featured blogs</h3>
+          <hr />
+          <a href="http://127.0.0.1:5500/women_in_design.html"
+            >Women of automobile design</a
+          ><br />02 Aril,2018 <br /><br />
+          <a href="http://127.0.0.1:5500/global_recognition.html"
+            >Tata Motors' amazing journey towards global recognition</a
+          ><br />21 March,2018 <br /><br />
+          <a
+            href="https://www.tatamotors.com/blog/international-business/journey-to-muktinath-on-a-tata-safari-storme/"
+            >Journey to Muktinath on a Tata Safari Storme</a
+          ><br />21 March,2018 <br /><br />
+          <a
+            href="https://www.tatamotors.com/blog/commercial-vehicle/tata-starbus-hybrid-electric-bus-greener-public-transport/"
+            >Tata Starbus Hybrid Electric Bus-Greener public transport</a
+          ><br />19 March,2018 <br /><br />
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="commontag">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about us/about us.html">About us</a></li>
+        <li><a href="./blog/blog.html">Blog</a></li>
+        <li><a href="./contact us project/joinus.html">Contact us</a></li>
+        <li><a href="./products/product.html">Products</a></li>
+        <li><a href="./creator/about.html">Creator</a></li>
+      </div>
+      <div class="social">
+        <ul class="social">
+          <li>
+            <a target="_blank" href="http://linkedin.com"
+              ><img src="linkedin-logo-png-1826.png" alt="hohoho"
+            /></a>
+          </li>
+          <li>
+            <a target="_blank" href="http://instagram.com"
+              ><img src="512x512-logo-27164.png" alt="hohoho"
+            /></a>
+          </li>
+          <li>
+            <a target="_blank" href="http://twitter.com"
+              ><img src="logo-twitter-png-5860.png" alt="hohoho"
+            /></a>
+          </li>
+          <li>
+            <a target="_blank" href="http://facebook.com"
+              ><img src="logo-facebookpng-32204.png" alt="hohoho"
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div style="font-size: 13px">
+        Copyright © 2019, All Right Reserved To Sanskar
+      </div>
+    </div>
+
+    <script>
+      const readMoreBtn = document.getElementById("read-more");
+      const hiddenContent = document.querySelector(".hidden");
+
+      readMoreBtn.addEventListener("click", function () {
+        hiddenContent.classList.toggle("hidden");
+        if (hiddenContent.classList.contains("hidden")) {
+          readMoreBtn.textContent = "Read more";
+        } else {
+          readMoreBtn.textContent = "Read less";
+        }
+      });
+      function menutoggle() {
+        const togglemenu = document.querySelector(".togglemenu");
+        const navigation = document.querySelector(".navigation");
+        togglemenu.classList.toggle("active");
+        navigation.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

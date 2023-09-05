@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABOUT US</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> -->
+  </head>
+  <body>
+    <section class="sec">
+      <header>
+        <a href="#"
+          ><img src="Tata-Motors-Logo-PNG-Photo.png" class="logo"
+        /></a>
+        <div class="togglemenu" onclick="menutoggle();"></div>
+        <ul class="navigation">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about us/about us.html">About us</a></li>
+          <li><a href="./blog/blog.html">Blog</a></li>
+          <li><a href="./contact us project/joinus.html">Contact us</a></li>
+          <li><a href="./products/product.html">Products</a></li>
+          <li><a href="./creator/about.html">Creator</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="textbox">
+          <h2>About <br /><span>Us</span></h2>
+          <p>
+            Tata Motors Group (Tata Motors) is a $37 billion organisation. It is
+            a leading global automobile manufacturing company. Its diverse
+            portfolio includes an extensive range of cars, sports utility
+            vehicles, trucks, buses and defence vehicles. Tata Motors is one of
+            India's largest OEMs offering an extensive range of integrated,
+            smart and e-mobility solutions.
+            <br />
+            Our mission - across our globally dispersed organisation -is to be
+            passionate in anticipating and providing the best vehicles and
+            experiences that excite our global customers.
+          </p>
+          <a href="https://www.tata.com/about-us">Read more</a>
+        </div>
+        <div class="imgbox">
+          <img src="group.png" class="about" />
+        </div>
+      </div>
+      <ul class="more">
+        <li><img src="group.png" onclick="imgSlider('group.png')" /></li>
+        <li>
+          <img src="innovation.png" onclick="imgSlider('innovation.png')" />
+        </li>
+        <li><img src="start.png" onclick="imgSlider('start.png')" /></li>
+        <li>
+          <img
+            src="sustainability.png"
+            onclick="imgSlider('sustainability.png')"
+          />
+        </li>
+        <li><img src="global.png" onclick="imgSlider('global.png')" /></li>
+        <!-- <li><img src="value&purpose.png" onclick="imgSlider('value&purpose.png')"></li> -->
+        <li><img src="revenue.png" onclick="imgSlider('revenue.png')" /></li>
+        <li>
+          <img src="community.png" onclick="imgSlider('community.png')" />
+        </li>
+      </ul>
+      <ul class="social">
+        <li>
+          <a target="_blank" href="http://facebook.com"
+            ><img src="facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a target="_blank" href="http://twitter.com"
+            ><img src="twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a target="_blank" href="http://instagram.com"
+            ><img src="instagram.png "
+          /></a>
+        </li>
+      </ul>
+    </section>
+    <script>
+      function imgSlider(anything) {
+        document.querySelector(".about").src = anything;
+      }
+      function menutoggle() {
+        const togglemenu = document.querySelector(".togglemenu");
+        const navigation = document.querySelector(".navigation");
+        togglemenu.classList.toggle("active");
+        navigation.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
